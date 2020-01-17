@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+Middleware, and Error Handling Middleware. Both are used to resolve http requests at URI/HTTP routes. 
+
 - [ ] Describe Middleware?
+
+In the express paradigm, middleware is logic used to handle (err, req, res, next). The FOUR homies. 
 
 - [ ] Describe a Resource?
 
+A resource is a category of data assigned by a backend developer to organize http requests related to that resource at a specific URI. 
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+res.status(200).json({ message: "status code 200: request successful})
+
 - [ ] How can we partition our application into sub-applications?
+
+By using routers and requiring them inside parent routers/server. 
 
 ## Minimum Viable Product
 

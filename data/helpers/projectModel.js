@@ -2,11 +2,11 @@ const db = require("../dbConfig.js");
 const mappers = require("./mappers");
 
 module.exports = {
-    get,
-    insert,
-    update,
-    remove,
-    getProjectActions,
+    get, // get(id)
+    insert, // insert(project)
+    update, // update(id, changes)
+    remove, // remove(id)
+    getProjectActions, // getProjectActions(projId)
 };
 
 function get(id) {
