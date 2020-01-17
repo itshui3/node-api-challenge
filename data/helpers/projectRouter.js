@@ -67,6 +67,9 @@ router.get('/:id/projectActions', (req, res) => {
     .then( resou => {
       res.status(200).json({ message: `status 200: successfully fetched resource`, project_actions: resou})
     })
+    .catch( err => {
+      res.status(500).json({ message: `status 500: internal server error, could not fetch resource` })
+    })
 })
 
 // 404 projectRouter fallback

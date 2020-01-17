@@ -5,7 +5,7 @@ const actionDb = require('./actionModel');
 // build
 const router = express.Router();
 // middleware
-
+const actionMw = require('../../middleware/action-middleware');
 // routes
 // actionDb.get(id)
 router.get('/:id', (req, res) => {
@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
 })
 
 // actionDb.insert(action)
-router.post('/', (req, res) => {
+router.post('/', actionMw.validateProjectId, (req, res) => {
   const newAction = req.body;
   actionDb.insert(newAction)
     .then( resou => {
@@ -30,6 +30,9 @@ router.post('/', (req, res) => {
     .catch( err => {
       res.status(500).json({ message: `status 500: internal server error, could not add action`})
     })
+})
+router.use((err, req, res, next) => {
+  res.status(err.status).json({ message: `status ${err.status}: resource not found`})
 })
 
 // actionDb.update(id, changes)
