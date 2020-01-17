@@ -1,11 +1,12 @@
 const projDb = require('../data/helpers/projectModel.js')
 
 const validateProjectId = (req, res, next) => {
-  const projId = req.body.proj_id;
+  const projId = req.body.project_id;
   projDb.get(projId)
     .then( resou => {
       console.log(resou);
-      if(resou.project_id) {
+      if(resou) {
+        console.log(resou);
         next();
       } else {
         const err = new Error('project id not found');
